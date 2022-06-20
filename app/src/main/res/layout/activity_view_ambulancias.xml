@@ -4,13 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".View_Ambulancias">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#CDDFDF"
-        android:gravity="center_vertical"
+        android:layout_width="351dp"
+        android:layout_height="651dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,54 +16,75 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/view_menu_main"
+            android:id="@+id/txt_view_ambulancia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
-            android:text="Menu"
-            android:textColor="#4369DC"
-            android:textSize="60sp" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bn_ambulancias_main"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/botones_redondos"
             android:text="Ambulancias"
+            android:textColor="#4369DC"
+            android:textSize="40sp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bn_nueva_ambulancia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botones_redondos"
+            android:text="Nueva"
+            android:textSize="16sp"
+            android:textColor="@color/white" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bn_actualizar_ambulancia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botones_redondos"
+            android:text="Actualizar"
+            android:textSize="16sp"
             android:textColor="@color/white" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="10dp"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bn_hospilaes_main"
+            android:id="@+id/bn_verAmbulancias_ambulancia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:background="@drawable/botones_redondos"
-            android:text="Hospitales"
+            android:text="Ver todas las ambulancias"
+            android:textSize="16sp"
             android:textColor="@color/white" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="10dp"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bn_accidente_main"
+            android:id="@+id/bn_verAmbulanciasOcupadas_ambulancia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:background="@drawable/botones_redondos"
-            android:text="Accidentes"
+            android:text="Ver Ocupadas"
+            android:textSize="16sp"
+            android:textColor="@color/white" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bn_verAmbulanciasLibres_ambulancias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botones_redondos"
+            android:text="Ver libres"
+            android:textSize="16sp"
             android:textColor="@color/white" />
 
     </LinearLayout>

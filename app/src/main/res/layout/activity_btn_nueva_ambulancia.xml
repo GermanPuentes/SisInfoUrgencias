@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BtnNuevaAmbulancia">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/txt_view_bn_nueva_ambulancia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:gravity="center_horizontal"
+            android:text="Nueva Ambulancia"
+            android:textColor="#4369DC"
+            android:textSize="40sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <EditText
+            android:id="@+id/edtxt_Codigo_btn_Nueva_Ambulancia"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:background="@drawable/ic_imput_redondeo"
+            android:drawableStart="@drawable/ic_code"
+            android:paddingLeft="17dp"
+            android:drawablePadding="20dp"
+            android:ems="15"
+            android:hint="Codigo"
+            android:inputType="number"
+            android:textColorHint="@color/white" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+        <EditText
+            android:id="@+id/edtxt_Calle_btn_Nueva_Ambulancia"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:background="@drawable/ic_imput_redondeo"
+            android:drawableStart="@drawable/ic_calle"
+            android:paddingLeft="17dp"
+            android:drawablePadding="20dp"
+            android:ems="15"
+            android:hint="Calle"
+            android:inputType="number"
+            android:textColorHint="@color/white" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+        <EditText
+            android:id="@+id/edtxt_Carrera_btn_Nueva_Ambulancia"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:background="@drawable/ic_imput_redondeo"
+            android:drawableStart="@drawable/ic_carrera"
+            android:paddingLeft="17dp"
+            android:drawablePadding="20dp"
+            android:ems="15"
+            android:hint="Carrera"
+            android:inputType="number"
+            android:textColorHint="@color/white" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
