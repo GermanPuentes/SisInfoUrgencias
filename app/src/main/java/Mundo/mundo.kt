@@ -1,7 +1,7 @@
 package Mundo
-
+import Mundo.sistema_de_emergencia.ambulancias
+import Mundo.sistema_de_emergencia.hospitales
 import ean.collections.TArrayList
-
 
 class Ubica_geografica_punto:Comparable<Ubica_geografica_punto>{
     private var calle = 0
@@ -43,8 +43,6 @@ class Ubica_geografica_punto:Comparable<Ubica_geografica_punto>{
         }
     }
 }
-
-
 class Accidentado:Comparable<Accidentado>{
     private var nombre:String=""
     private var motivo:String=""
@@ -82,7 +80,6 @@ class Accidentado:Comparable<Accidentado>{
         }
 }
 }
-
 class Ambulancia {
     private var ubicacion= Ubica_geografica_punto()
     private var codigo: Int = 0
@@ -103,7 +100,19 @@ class Ambulancia {
     fun getEstado() = this.estado
     fun getPaciente() = this.paciente
     fun getUbicacion() = this.ubicacion
-
+    //Modificadores
+    fun setUbicacion(new_ubicacion: Ubica_geografica_punto) {
+        if (new_ubicacion != null) this.ubicacion = new_ubicacion
+    }
+    fun setCodigo(new_codigo: Int) {
+        if (new_codigo > 0) this.codigo = new_codigo
+    }
+    fun setEstado(new_estado: Boolean) {
+        if (new_estado != null) this.estado = new_estado
+    }
+    fun setPaciente(new_paciente: Accidentado?) {
+        if (new_paciente != null) this.paciente = new_paciente
+    }
 
 //Metodos
 
@@ -134,8 +143,6 @@ Ingresa un accidentado a la ambulancia
         }
 
     }
-
-
 class Hospital:Comparable<Hospital>{
     private var codigo:Int = 0
     private var name:String = ""
@@ -221,18 +228,14 @@ fun ingresarPaciente(paciente: Accidentado, urgencia: String){
     }
 
     }
-
-
-
-
 fun distancia(pt_inicial: Ubica_geografica_punto, pt_final: Ubica_geografica_punto): Int {
     return (pt_final.getCalle()-pt_inicial.getCalle())+(pt_final.getCarrera()-pt_inicial.getCarrera())
 }
 
+//----------------------------------------------Controlador------------------------------------------------------
 object sistema_de_emergencia{
-    private var hospitales = TArrayList<Hospital>()
-    private var ambulancias = TArrayList<Ambulancia>()
-
+     var hospitales = TArrayList<Hospital>()
+     var ambulancias = TArrayList<Ambulancia>()
 
     //Agregar Ambulancia
     fun agregarAmbulancia(codigo: Int, calle: Int, carrera: Int){
@@ -247,7 +250,6 @@ object sistema_de_emergencia{
             ambulancias.add(Ambulancia(Ubica_geografica_punto(calle,carrera),codigo, false,null,))
         }
     }
-
     //Agregar Hospital
     fun agregarHospital(codigo: Int, nombre: String, calle: Int, carrera: Int, especialidad_uno: String, especialidad_dos: String){
             fun verificarHospital(codigo: Int):Boolean{
@@ -263,7 +265,78 @@ object sistema_de_emergencia{
                                 Ubica_geografica_punto(calle,carrera) ))
         }
     }
+    //funcion accidentado
+    fun nuev_accidentado(accidentado: Accidentado):Ambulancia?{
+        var distacia_minima = distancia(accidentado.getUbicacion(), hospitales[0].getUbicacion())
+        var ambulancia_libre = ambulancias[0]
+        for (i in ambulancias){
+            if(!i.getEstado()){
+                if (distancia(i.getUbicacion(),accidentado.getUbicacion())< distacia_minima){
+                    distacia_minima = distancia(i.getUbicacion(),accidentado.getUbicacion())
+                    ambulancia_libre = i
+                }
+                return null
+                }
+            }
+        return ambulancia_libre
+        }
+    //Funcion que actualiza la ubicacion de la ambulancia  ????debemos retornar un valor??
+    fun act_ubi_ambulancia(codigo: Int, new_ubi_ambu: Ubica_geografica_punto) {
+        //busca la ambulancia con el mismo codigo
+        val ambulancia = ambulancias.find { it.getCodigo() == codigo }
+        //Verifica si la ambulancia esta libre
+        if (!ambulancia!!.getEstado()) {
+            //Actualiza la ubicacion de la ambulancia
+            ambulancia.cambiarUbicacion(new_ubi_ambu)
+        }
+    }
+    //Funcion que asigna un accidentado a una ambulancia
+    fun asignar_ambulancia(ambulancia: Ambulancia, accidentado: Accidentado){
+            //Verifica si la ambulancia esta libre
+            if(!ambulancia.getEstado()){
+                //Asigna el accidentado a la ambulancia
+                ambulancia.ingresarAccidentado(accidentado)
+                //Actualiza el estado de la ambulancia
+                ambulancia.setEstado(true)
+            }
+        }
+    fun buscar_hospital(ambulancia: Ambulancia):Hospital{
+            require(ambulancia.getEstado())
+            //Verificar los hopitales que atienden la especialidad del accidentado
+            val hospital = hospitales.filter { it.consultarEspecialidad(ambulancia.getPaciente()?.getMotivo() !!) }
 
+            val hospital_cerca = hospital.minByOrNull { distancia(it.getUbicacion(), ambulancia.getUbicacion()) }
+//--------------------------------------------------------------------
+          //verificar que accidentado no exista en los pacientes del hopital
+            return if(hospital_cerca?.buscarPaciente(ambulancia.getPaciente()?.getNombre()!!)==true) {
+                hospital_cerca
+            }else
+                null!!
+            }
+    //llegada de una ambulancia a un hospital
+    fun llegada_ambulancia(ambulancia:Ambulancia){
+        require(ambulancia.getEstado()==true)
+        //buscar el hospital que atiende la especialidad del accidentado
+        val hospital = buscar_hospital(ambulancia)
+        if(hospital!=null){
+            ambulancia.liberarAmbulancia()
+            hospital.ingresarPaciente(ambulancia.getPaciente()!! ,ambulancia.getPaciente()!!.getMotivo())
+        }
 
-
+    }
+    //Funcion que da de alta a un accidentado
+    fun dar_de_alta(codigo: Int, nombre:String){
+        //validamos si el hospital existe
+        val hospital = hospitales.find { it.getCodigo() == codigo }
+        val paciente = hospital!!.getHospitalizados().find { it.getNombre() == nombre }
+        if(paciente!=null){
+            hospital!!.retirarPaciente(nombre)
+        }
+    }
 }
+
+
+
+
+
+
