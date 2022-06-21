@@ -14,6 +14,9 @@
         android:theme="@style/Theme.SisInfoUrgencias"
         tools:targetApi="31">
         <activity
+            android:name=".VerAmbulancias"
+            android:exported="false" />
+        <activity
             android:name=".BtnNuevaAmbulancia"
             android:exported="false" />
         <activity

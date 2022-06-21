@@ -1,0 +1,93 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_view_ambulancias"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_ambulancia_24"
+            tools:background="@color/black" />
+
+        <TextView
+            android:id="@+id/txt_codigoTitle_itemAmbulancias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_view_ambulancias"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Código" />
+
+        <TextView
+            android:id="@+id/txt_codigo_itemAmbulancias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_view_ambulancias"
+            app:layout_constraintTop_toBottomOf="@id/txt_codigoTitle_itemAmbulancias"
+            tools:text="RealName" />
+
+        <TextView
+            android:id="@+id/txt_titleCalle_itemAmbulancias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calle: "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.058"
+            app:layout_constraintStart_toEndOf="@+id/img_view_ambulancias"
+            app:layout_constraintTop_toBottomOf="@+id/txt_codigo_itemAmbulancias"
+            app:layout_constraintVertical_bias="0.216"
+            />
+
+        <TextView
+            android:id="@+id/txt_Calle_itemAmbulancia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            tools:text="0"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_titleCalle_itemAmbulancias"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.186"
+            app:layout_constraintStart_toEndOf="@+id/txt_titleCalle_itemAmbulancias"
+            app:layout_constraintTop_toBottomOf="@+id/txt_codigo_itemAmbulancias" />
+
+        <TextView
+            android:id="@+id/txt_CarreraTitle_itemAmbulancia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="Carrera"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_view_ambulancias"
+            app:layout_constraintTop_toBottomOf="@+id/txt_titleCalle_itemAmbulancias"
+            app:layout_constraintVertical_bias="0.468" />
+
+        <TextView
+            android:id="@+id/txt_Carrera_itemAmulancia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            tools:text="0"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_CarreraTitle_itemAmbulancia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.184"
+            app:layout_constraintStart_toEndOf="@+id/txt_CarreraTitle_itemAmbulancia"
+            app:layout_constraintTop_toBottomOf="@+id/txt_Calle_itemAmbulancia" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

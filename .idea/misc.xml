@@ -11,9 +11,11 @@
         <entry key="..\:/Users/German Puentes/Documents/DiplomadoDeDesarrolloMovil/ProyectosAndroidDiplomado/SisInfoUrgencias/app/src/main/res/drawable/ic_code.xml" value="0.1875" />
         <entry key="..\:/Users/German Puentes/Documents/DiplomadoDeDesarrolloMovil/ProyectosAndroidDiplomado/SisInfoUrgencias/app/src/main/res/layout/activity_btn_nueva_ambulancia.xml" value="0.15" />
         <entry key="..\:/Users/German Puentes/Documents/DiplomadoDeDesarrolloMovil/ProyectosAndroidDiplomado/SisInfoUrgencias/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/Users/German Puentes/Documents/DiplomadoDeDesarrolloMovil/ProyectosAndroidDiplomado/SisInfoUrgencias/app/src/main/res/layout/activity_ver_ambulancias.xml" value="0.153125" />
         <entry key="..\:/Users/German Puentes/Documents/DiplomadoDeDesarrolloMovil/ProyectosAndroidDiplomado/SisInfoUrgencias/app/src/main/res/layout/activity_view_accidentes.xml" value="0.18" />
         <entry key="..\:/Users/German Puentes/Documents/DiplomadoDeDesarrolloMovil/ProyectosAndroidDiplomado/SisInfoUrgencias/app/src/main/res/layout/activity_view_ambulancias.xml" value="0.2" />
         <entry key="..\:/Users/German Puentes/Documents/DiplomadoDeDesarrolloMovil/ProyectosAndroidDiplomado/SisInfoUrgencias/app/src/main/res/layout/activity_view_hospitales.xml" value="0.22" />
+        <entry key="..\:/Users/German Puentes/Documents/DiplomadoDeDesarrolloMovil/ProyectosAndroidDiplomado/SisInfoUrgencias/app/src/main/res/layout/item_ambulancias.xml" value="0.25" />
       </map>
     </option>
   </component>

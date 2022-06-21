@@ -15,5 +15,9 @@ class View_Ambulancias : AppCompatActivity() {
             val intent = Intent(this,BtnNuevaAmbulancia::class.java)
             startActivity(intent)
         }
+        binding.bnVerAmbulanciasAmbulancia.setOnClickListener(){
+            val intent = Intent(this, VerAmbulancias::class.java)
+            startActivity(intent)
+        }
     }
 }

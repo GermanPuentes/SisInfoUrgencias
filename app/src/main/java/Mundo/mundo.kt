@@ -1,6 +1,4 @@
 package Mundo
-import Mundo.sistema_de_emergencia.ambulancias
-import Mundo.sistema_de_emergencia.hospitales
 import ean.collections.TArrayList
 
 class Ubica_geografica_punto:Comparable<Ubica_geografica_punto>{
